@@ -1,0 +1,692 @@
+'''def update(x):
+    x = 8
+    print(id(x))
+
+    print(x)
+a=8
+print(id(a))
+update(10)
+
+
+def sum(*b):
+    c=0
+    for i in b:
+        c= c+i
+        print(c)
+sum(2,3,4,5)
+
+
+
+def person(name, **data):
+
+    print(name)
+    for i,j in data.items():
+        print(i, j)
+
+person('sai',age=21,lang='python')'''
+
+# day 13
+# global variables
+
+'''a = 10
+print(id(a))
+
+def some_thing():
+    a = 5
+    x = globals()['a']
+
+    print(a)
+    print(id(a))
+    globals()['a'] = 15
+    print(id(x))
+
+some_thing()
+
+print(a)'''
+
+# passing list to the function
+
+'''list = [2,3,4,5,6,7,8,9,11]
+
+def find(list):
+    even =0
+    odd =0
+    for i in list:
+        if i%2 == 0:
+            even+=1
+        else:
+            odd+=1
+    return even, odd
+e, o =find(list)
+print("Even:{} and odd:{}".format(e,o))
+
+
+
+names = ['sai', 'kiran', 'jhjhgdjhg', 'sdf']
+
+def find_length(names):
+    a=0
+    b=0
+
+    for i in names:
+        if len(i) > 3:
+            a+=1
+        else:
+            b+=1
+    return a,b
+a,b= find_length(names)
+print("names greater than 3 letters : {} and others is : {}".format(a,b))'''
+
+# fibonacci
+
+'''num=int(input("enter the value for fibonoci"))
+def yes():
+
+    a=0
+    b=1
+    if num <= 1:
+        print("not applicable.should be >= 1")
+    else:
+        if  num ==1:
+            print(a)
+        else:
+            print(a)
+            print(b)
+            for i in range(2,num):
+                c = a+b
+                print(c)
+                a,b = b,c
+yes()'''
+
+# factorial
+'''num=int(input("enter the value for factorial"))
+def fact():
+    f=i
+    for i in range(1,num+1):
+        f = f*i
+    return f
+c= fact()
+print(c)'''
+
+# factorial of a number using recursion
+'''num=5
+def fact(num):
+
+    if num == 0:
+        return 1
+    return num * fact(num-1)
+
+
+result = fact(num)
+
+print(result)'''
+
+# lambda function
+
+'''f = lambda a, b: a*b
+result = f(5, 6)
+print(result)'''
+
+# adding the values in the given list
+'''list = [1,2,3,4,5]
+a=0
+for i in list:
+    a = a+i
+print(a)'''
+# filter(), map() and reduce() functions using the lambda function.
+
+# filter():
+'''nums = [1,2,3,4,5,6,7,8,9]
+
+even = list(filter(lambda i: i % 2 == 0, nums))
+print(even)
+
+# map()
+
+squares = list(map(lambda i: i+2, nums))
+print(squares)
+
+# reduce()
+from functools import reduce
+
+add = reduce(lambda a, i: a+i, nums)
+print(add)'''
+
+# decorators
+'''def sub(a,b):
+    print(a-b)
+
+
+def smart_sub(func):
+
+    def inner_sub(a, b):
+        if a < b:
+            a, b = b, a
+
+        return func(a,b)
+    return inner_sub
+sub2 = smart_sub(sub)
+sub2(5, 6)
+
+import demo
+
+print("lets continue with the series on python")'''
+
+# class methods
+
+'''class computer:
+    a= 10
+    b= 5
+
+    def sum(self, a, b):
+        c = a + b
+        print(c)
+
+    def sub(self, a, b):
+        c= a - b
+        print(c)
+
+comp = computer()
+comp2 = computer()
+
+comp.sum(2, 4)
+comp2.sub(4, 2)
+
+class cop:
+
+    def __init__(self,cpu, ram):
+        self.cpu = cpu
+        self.ram = ram
+    def copy(self):
+        print('my copy is', self.cpu, self.ram)
+
+ccc = cop('i5', '4gb')
+ccc2 = cop('i7', '16gb')
+ccc.copy()
+ccc2.copy()'''
+
+# constructor and self
+
+'''class computer:
+
+    def __init__(self):
+        self.name = 'kiran'
+        self.age =  21
+
+    def update(self):
+        self.name = 'sai'
+        self.age = 22
+
+    def compare(self, c2):
+        if self.name == c2.name:
+            return True
+        else:
+            return False
+
+
+c1 = computer()
+c2 = computer()
+print(c1.name)
+print(c1.age)
+c2.update()
+
+print(c2.name)
+print(c2.age)
+if c1.compare(c2):   # here compare takes 2 parameters (who is calling, whom to compare).
+    print("both are same")
+else:
+    print("not same")'''
+
+# types of variables
+# instance variables, # class variables.
+
+'''class car:
+
+    wheels = 4
+
+    def __init__(self):
+        self.mil = 10
+        self.comm = "BMW"
+
+c1 = car()
+c2 = car()
+
+car.wheels = 6    # changing the value of the wheels(class variable).
+c1.mil = 50
+print(c1.mil, c2.mil)
+print(c1.wheels)    # wheels effected all the objects because it is a class variable.'''
+
+# types of methods
+'''class students:
+
+    school = "online school of python"
+
+    def __init__(self, m1, m2, m3):
+        self.m1 = m1
+        self.m2 = m2
+        self.m3 = m3
+
+    def avg(self):    # instances method
+        return (self.m1 + self.m2 + self.m3)/3
+    # instance method has two typs. @accessor method @ mutator method
+    def get_it(self):       # accessor method
+        return self.m1
+    def set_it(self, m1):    # mutator method
+        self.m1 = m1
+        return self.m1
+
+    @classmethod
+    def info(cls):   # here we are working with class variable, so we pass it as 'cls'
+        return cls.school
+
+    @staticmethod
+    def do_it():     # here we do not pass anything in '()' because we are not working with any of those variables
+        print("for education")
+
+s1 = students(23, 22, 54)
+s2 = students(24, 54, 26)
+print(s2.avg())        # instance method
+print(students.info()) # class method
+students.do_it()       # static method'''
+
+# class inside the class
+
+'''class student:
+
+    def __init__(self, name, roll):
+        self.name = name
+        self.roll = roll
+        self.lap = self.things()
+
+    def show(self):
+        print(self.name, self.roll)
+        self.lap.show()
+
+ 
+    class things:
+
+        def __init__(self,):
+            self.lap = 'lenovo'
+            self.mobile = 'vivo'
+
+        def show(self):
+            print(self.lap, self.mobile)
+
+
+s1 = student('sai', 353, )
+s2 = student('rakesh', 324)
+
+s1.show()'''
+
+# inheritance
+
+'''class A:     # we can access only its feature
+    def feature1(self):
+        print("feature 1")
+
+a1 = A()
+a1.feature1()
+class B(A):     # can be access both the fetures
+    def feature2(self):
+        print("feature 2")
+b1 = B()
+b1.feature1()
+b1.feature2()
+
+class C: # access only its feature
+    def feature3(self):
+        print("feature 3")
+c1 = C()
+c1.feature3()
+
+class D(A,C):           # we can access both the features from different classes
+    def feature4(self):
+        print("feature 4")
+
+d1 = D()
+d1.feature1()
+d1.feature3()
+d1.feature4()'''
+
+# inheritance constructor and super() and MRO method resolution order
+
+'''class A:
+
+    def __init__(self):
+        print("feature in 1-a")
+
+    def feature1(self):
+        print("feature 1-a")
+
+    def feature2(self):
+        print("feature 2")
+
+
+class B:
+
+    def __init__(self):
+        print("feature in 1-b")
+
+    def feature1(self):
+        print("feature 1-b")
+
+    def feature4(self):
+        print("feature 4")
+
+class C(A, B):
+
+
+
+    def __init__(self):
+        super().__init__()  # here we are calling super class feature where as MRO takes it as from left to right
+                            # thats why we getting class A feature.
+        print("feature in 1-c")
+
+    def feature1(self):
+        super().feature1()   # method resolution order brings it from class A
+        print("feature 1-c")
+
+c1 = C()
+c1.feature1()'''
+
+# polymorphism :
+# duck typing:if one function behaves like another function which are in different classes because of same function name
+'''class pubg_lite:
+
+    def game(self):
+        print("smooth game play in all the mobiles")
+        print("supports all the mobiles above 1gb ram")
+        print("support all the features")
+        print("new update for the game lovers")
+class pubg_mobile:
+
+    def game(self):
+        print("smooth game play in 3gb ram only")
+        print("support all the features")
+class pubg:
+
+    def add(self, mobile):
+        mobile.game()
+# we can change the class as wee needed because of dynamic typing
+mobile = pubg_lite()
+
+mob = pubg()
+mob.add(mobile)'''
+
+# operator overloading
+
+'''class student:
+
+    def __init__(self, m1, m2):
+        self.m1 = m1
+        self.m2 = m2
+
+    def __add__(self, other):
+        m1 = self.m1 + other.m1
+        m2 = self.m2 + other.m2
+        s3 = student(m1, m2)
+        return s3
+
+    def __gt__(self, other):
+        s1 = self.m1 + self.m2
+        s2 = other.m1 + other.m2
+
+        if s1 > s2:
+            return True
+        else:
+            return False
+
+s1 = student(22, 145)
+s2 = student(25, 359)
+
+s3 = s1 + s2
+s3.
+print(s3.m1, s3.m2)
+
+if s1 > s2:
+    print('s1 wins')
+
+else:
+    print('s2 wins')'''
+
+# method overloading and method overriding.
+
+# method overloading
+'''class student:
+
+    def add(self, a = None, b= None, c = None):
+
+        if a!=None and  b != None and c!= None:
+            d = a + b + c
+        elif a!=None and  b != None:
+            d = a + b
+        else:
+            d = a
+
+        print(d)
+
+s1 = student()
+s1.add(2, 3)  # if we pass only one value it will take it and assign to parameter cause of we have defined to accept
+
+# method overriding
+
+class A:
+
+    def math(self):
+        print("for A class")
+
+class B(A):
+
+    pass
+
+b1 = B()
+b1.math()'''
+
+# Abstract class:
+
+'''from abc import ABC, abstractmethod
+
+class computer(ABC):
+    @abstractmethod
+    def process(self):
+        pass
+
+class laptop(computer):
+
+    def process(self):
+        print("working")
+
+class work_sheet(computer):     
+
+    def work(self):            # gives error because, the function name is different from abstract function name.
+        print("yes")
+        
+
+com1 = computer()       # it wont work because the class which is defined is an abstract class. so, it dont have object.
+com1.process()
+
+com2 = laptop()
+com2.process()
+
+com3 = work_sheet()
+com3.work()'''
+
+# " iterators "
+
+'''num = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+print(num[0])    # one way to fetch the values in the nums list.
+
+# second way of fetching the values in the list.
+it = iter(num)  # we have inbuilt function 'iter' to fetch out the values in the list. # here it will iterate the values
+print(it.__next__())
+print(it.__next__())
+print(it.__next__())
+# by using the for loop we can fetch the values in the nums list
+
+for i in it:  # if we used to print the values in the 'it' , before that we have used print statements, so its will continue
+    print(i)
+
+# the another way of printing the first 10 values we can get our own object by using class.
+
+class top_num:
+
+    def __init__(self):
+        self.num = 1
+
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+
+        if self.num <= 10:
+            value = self.num
+            self.num += 1
+            return value
+        else:
+            raise StopIteration
+
+t = top_num()
+for i in t:
+    print(i)'''
+
+
+# generators
+
+'''def top_ten():
+    n = 1
+    while n <= 10:
+        yield n
+        n += 1
+
+
+values = top_ten()
+print(values.__next__())
+
+for i in values:
+   print(i)'''
+
+# exception handling
+
+'''a = 10     # normal statements
+b = 2       # normal statements
+try:
+    print("resource open")
+    # critical statements
+    print(a/b)
+    c = int(input("enter the value"))
+    print(c)
+
+except ZeroDivisionError:
+    print("you cant divide a number with zero")
+
+except ValueError:
+    print("invalid input")
+
+finally:
+    print("resource close")
+    print("bye")'''
+
+# threads   (multi_tasking)
+'''from time import sleep
+from threading import *
+class Hello(Thread):
+
+    def run(self):
+        for i in range(10):
+            print("hello")
+            sleep(1)
+
+class Hi(Thread):
+
+    def run(self):
+        for i in range(10):
+            print("hi")
+            sleep(1)
+
+
+t1 = Hello()
+t2 = Hi()
+
+t1.start()
+sleep(0.1)
+t2.start()
+
+t1.join()
+t2.join()
+
+print('bye')'''
+
+# linear search
+
+'''num = [1,2,3,4,5,9,7,8,9]
+
+n = 9
+p = -1
+def search(num, n):
+    i = 0
+    while i < len(num):
+        if num[i] == n:
+            globals()['p'] = i
+            return True
+        i = i+1
+    return False
+#search()
+
+if search(num, n):
+    print("found in position", p+1)
+
+else:
+    print("not found")'''
+
+# binary search
+
+'''num = [15, 22, 2, 1, 3, 5, 4, 7, 6, 8, 9]
+num.sort()
+print(num)
+#print(len(num))
+n = 3
+pos = -1
+def search():
+
+    l = 0
+    u = len(num)
+
+    i = 0
+    while i < len(num):
+        mid = (l + u) // 2
+        if n == num[mid]:
+            globals()['pos'] = mid
+            return True
+        else:
+            if n < num[mid]:
+                u = mid-1
+            elif n > num[mid]:
+                l = mid+1
+        i = i+1
+    return False
+
+if search():
+    print("found at position", pos+1)
+else:
+    print("not found")'''
+
+# bubble short
+nums = [5, 4, 3, 2, 1]
+'''def sort(nums):
+    for i in range(len(nums)-1, 0,   -1):
+        for j in range(i):
+            if nums[j] > nums[j+1]:
+                nums[j], nums[j+1] = nums[j+1], nums[j]
+sort(nums)
+print(nums)'''
+
+'''for i in range(len(nums)-1):
+    min = i
+    for j in range(i+1, len(nums)):
+        if nums[j] < nums[min]:
+            min = j
+        print(nums)
+
+        nums[min], nums[i] = nums[i], nums[min]
+print(nums)'''
